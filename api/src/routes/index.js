@@ -1,5 +1,6 @@
 const { Router } = require("express");
-const {getCharacters, getEpisodes, getId}= require("../controllers/index");
+const {getAllInfo}= require("../controllers/characters");
+const {getEpisodesApi} = require("../controllers/episodes");
 
 
 const router = Router();
@@ -8,9 +9,17 @@ const router = Router();
 
 router.get("/characters", async (req, res)=>{
   try {
-      res.send(await getCharacters());
+      res.send(await getAllInfo());
   } catch {
       res.status(400).json('error en get characters');
+  }
+});
+
+router.get("/episodes", async (req, res)=>{
+  try {
+      res.send(await getEpisodesApi());
+  } catch {
+      res.status(400).json('error en get episodes');
   }
 });
 
