@@ -71,7 +71,7 @@ const getCharacters = async () => {
   try {
     const charactersApi = [];
     let apiUrl = 'https://rickandmortyapi.com/api/character';
-    for (let i = 0; i <= 4; i++) {
+    for (let i = 0; i < 2; i++) {
       let apiInfo = await axios(apiUrl)
 
       apiInfo.data.results.forEach(e => {
